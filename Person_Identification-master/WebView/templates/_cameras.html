@@ -1,0 +1,17 @@
+<!-- 
+	4/11 6:55pm SH & JD - new partial file containg camera links
+	4/11 7:35pm JD - worked on predicted motion
+-->				
+
+				<h3>Cameras</h3>
+				<ul>
+					<li><a id="camera0" href="#">Home</a></li>
+				{% for c in camera_list %}
+					<li><a class="camera_link" id="camera{{c.getID()}}" href="#">Camera {{c.getID()}}</a> - <a id="camera{{c.getID()}}_power" href="#">{{"on" if c.isOnline() else "off"}}</a> <img class="indicator" id="camera{{c.getID()}}_indicator" src="{{url_for('static', filename='green_indicator.png' if c.hasMotion() else 'red_indicator.png')}}"/>
+						{% if c.hasPredictedMotion() %}
+						<img class="indicator" src="{{url_for('static', filename='yellow_indicator.png')}}"/>
+						{% endif %}
+						<hidden id="camera_{{c.getID()}}_ip" value="{{c.getIP()}}" />
+					</li>
+				{% endfor %}
+				</ul>

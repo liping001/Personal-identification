@@ -1,0 +1,35 @@
+Camera mapping is always done by facing a camera and deciding which camera is physically to it's left and right.  Numeric order doesn't matter.  The config file for each instance of the VideoController must be populated with this information during the setup of the system.  A config.sample file with all such configuration exists in git.
+
+linear with cameras facing each other
+1                   |
+                    |
+                    |
+                   2|
+                    |    L  R
+                    | 1 (2, -)
+3                   | 2 (1, 3)
+                    | 3 (4, 2)
+                   4| 4 (3, 5)
+                    | 5 (-, 4)
+                    |
+5                   |
+
+ring with cameras pointing out
+                    |
+                    |
+         1          |
+                    |    L R
+              2     | 1 (2, 5)
+                    | 2 (3, 1)
+                    | 3 (4, 2)
+   5                | 4 (5, 3)
+                    | 5 (1, 4)
+                    |
+              3     |
+                    |
+         4          |
+                    |
+                    |
+
+
+

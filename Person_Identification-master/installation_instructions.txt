@@ -1,0 +1,44 @@
+Install an OS specific version of python 3.6
+	Plus the following packages
+	- opencv-python
+	- flask
+	- flask-mysql
+	- flask-cors
+	- mysql
+	- imutils
+	- scipy
+	- Numpy
+	- CMake
+	- dlib (Visual Studio 2015 or newer version is required for Windows)
+	- face_recognition
+
+Install an os specific version of mysql
+	Using the root mysql user, run the my_tables.sql script found in the root of the git project
+	This will create a securedb schema + the two tables + a secuser that has permission to connect and use the tables.
+	mysql -u root -p < my_tables.sql
+
+Installation option 1 - single computer
+	All components can be installed and running on a single computer but the system would be limited to a single camera
+		VideoController - modify config script as described in the file_inventory.txt
+		WebView - modify config script as described in the file_inventory.txt
+		Mysql
+
+Installation option 2 - multiple computers
+	Multi-purpose app server:
+		Install everything mentioned above
+		Will be running the following processes
+			Mysql
+			WebView - modify config script as described in the file_inventory.txt
+			VideoController ( optional here unless this server will also have a camera )
+
+	Remote Camera server ( one for each remote camera ):
+		Install the above python stack
+		Will be running the following process
+			VideoController - modify config script as described in the file_inventory.txt
+
+To start the WebView, cd into it's directory and use either start.sh or start.cmd
+to start the VideoController, cd into it's directory and use either start.sh or start.cmd
+open browser and point it to http://localhost:5000
+
+Note about mysql access from remote computers.  By default, mysql installs without remote access enabled ( only binds to localhost ).  The documentation describes how to change my.cnf (my.ini on windows) to allow remote access.
+

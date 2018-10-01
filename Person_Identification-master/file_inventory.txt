@@ -1,0 +1,57 @@
+Basic file inventory:
+
+WebView
+	main.py - contains the flask application logic for the main user interface
+	templates
+		index - the main page 
+		_view - a partial page that shows the video feed of a selected camera
+		_home - a partial page that loads the logo and title for the site
+		_cameras - a partial page that shows the list of camera links and indicators
+		_activity - a partial page that shows the tracking activity
+	start scripts - a batch file and bash script for launching flask on windows or unix
+	config file - configuration settings for the application
+		user - the database username
+		password - the database password
+		host - ip address of the database
+		schema - the name of the schema to connect to
+	static content - images, javascript and css files
+
+VideoController
+	camera.py - contains the main logic for tracking people using cv2 and movement prediction logic
+	main.py - contians the flask application logic for allowing the browser to access the video feed
+	config - configuration settings for the video controller
+		user - the database username
+		password - the database password
+		host - ip address of the database
+		schema - the name of the schema to connect to
+		cv2_index=0 - a number starting at zero and counting up that identifies which camera cv2 should use ( when more than one camera is present on the computer )
+		camera_id=1 - each camera is assigned a # that is used to identify this camera
+		right_camera_id=2 - the id of the camera to the right of this one as you face it
+		left_camera_id - the id of the camera to the lef ot this one as you face it
+	Neural net files used by cv2 to recognize objects ( we use them to recognize people )
+		MobileNetSSD_deploy.caffemodel
+		MobileNetSSD_deploy.prototxt.txt
+	start scripts - a batch file and bash script for launching flask on windows or unix
+
+shared
+	ActivityDbRow.py - represents a row from the tracking table
+	CameraDbRow.py - represents a row from the camera table
+Database
+	securedb
+		camera
+			id - primary key
+			camera_IP - ip address of the computer hosting this camera
+			left_cam_id - id of camera to the left of this one
+			right_cam_id - id of camera to the right of this one
+			is_online	- indicates if this camera is online
+		tracking
+			id - the primary key
+			label - a field to record the label attached to a tracked person
+			raw_time - alternate key used to drive a query to retrieve the database assigned id
+			start_time - start_time of when this tracked person came into view of this camera
+			end_time - end_time when this person went out of view of this camera
+			camera_id - the id of the camera observing this event
+			next_camera_id - where the tracked person is likely to be headed
+			has_arrived - flag indicating that the tracked person has arrived at the predicted location
+
+

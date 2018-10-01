@@ -1,0 +1,10 @@
+[DB]
+user=secuser
+password=password
+host=192.168.1.18
+schema=securedb
+[APP]
+cv2_index=0
+camera_id=1
+left_camera_id=5
+right_camera_id=2

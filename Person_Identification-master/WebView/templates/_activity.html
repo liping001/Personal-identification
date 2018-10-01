@@ -1,0 +1,15 @@
+<!-- 
+	4/15 5:06pm LH initial creation of the activity_list
+-->	
+
+<h3>Activity<h3>
+<table>
+	<tr>
+		<th>Label</th><th>Camera</th><th>Start Time</th><th>End Time</th><th>Predicted Camera</th>
+	</tr>
+	{% for a in activity_list %}
+	<tr>
+		<td>{{a.label}}</td><td>{{a.camera_id}}</td><td>{{a.start_time}}</td><td>{{a.end_time}}</td><td>{{a.next_camera_id}}</td>
+	</tr>
+	{% endfor %}
+</table>

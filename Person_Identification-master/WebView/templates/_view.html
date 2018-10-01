@@ -1,0 +1,25 @@
+<!-- 
+	4/11 6:55pm SH & JD - added class to camera links
+-->	
+<table>
+	<tr>
+		<td>
+			<div id="left_camera_link">
+				{% if data[2] %}
+				<a class="side_camera_link" id="camera{{data[2]}}" href='#'>&lt;- Camera {{ data[2]}}</a>
+				{% endif %}
+			</div>
+		</td>
+		<td>
+			<h4>Camera {{ data[0] }}</h4>
+			<img src='http://{{data[1]}}/video_feed'/>
+		</td>
+		<td>
+			<div id="right_camera_link">
+				{% if data[3] %}
+				<a class="side_camera_link" id="camera{{data[3]}}" href='#'>Camera {{ data[3] }} -&gt;</a>
+				{% endif %}
+			</div>
+		</td>
+	</tr>
+</table>

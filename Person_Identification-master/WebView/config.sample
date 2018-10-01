@@ -1,0 +1,5 @@
+[DB]
+user=secuser
+password=password
+host=192.168.1.6
+schema=securedb

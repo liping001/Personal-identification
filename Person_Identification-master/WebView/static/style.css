@@ -1,0 +1,42 @@
+/* 
+	4/16 6:42pm JD - modified left width and left margin width
+*/
+
+#left {
+	float: left;
+	width: 300px;
+}
+
+#center {
+	min-width: 400px;
+	margin: auto;
+}
+
+#right {
+	height: 200px;
+	margin-left: 300px;
+	height: 300px;
+}
+
+#left_camera_link,#right_camera_link {
+	width: 85px;
+	display: block;
+}
+
+li {
+	height: 35px;
+}
+
+.indicator {
+	width: 30px;
+	vertical-align:middle;
+}
+
+table {
+	border: 1px solid black;
+}
+
+td {
+	width: 175px;
+	text-align: center;
+}
